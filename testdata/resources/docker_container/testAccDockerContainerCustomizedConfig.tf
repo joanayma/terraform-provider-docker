@@ -83,6 +83,10 @@ resource "docker_container" "foo" {
   userns_mode = "testuser:231072:65536"
   ipc_mode    = "private"
   working_dir = "/tmp"
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }
 
 resource "docker_network" "test_network" {

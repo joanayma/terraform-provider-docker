@@ -17,4 +17,8 @@ resource "docker_container" "foo" {
     name         = docker_network.test.name
     ipv6_address = "fd00:0:0:0::123"
   }
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

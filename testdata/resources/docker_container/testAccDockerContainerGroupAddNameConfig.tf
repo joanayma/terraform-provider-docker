@@ -9,4 +9,8 @@ resource "docker_container" "foo" {
   group_add = [
     "users"
   ]
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

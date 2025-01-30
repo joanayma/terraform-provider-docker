@@ -15,4 +15,8 @@ resource "docker_container" "foo" {
     container_path = "/tmp/volume"
     read_only      = false
   }
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

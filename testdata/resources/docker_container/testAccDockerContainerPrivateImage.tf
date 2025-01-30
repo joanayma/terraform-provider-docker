@@ -16,4 +16,8 @@ resource "docker_container" "foo" {
   provider = "docker.private"
   name     = "tf-test"
   image    = docker_image.foo.image_id
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

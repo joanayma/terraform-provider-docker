@@ -19,6 +19,10 @@ resource "docker_container" "foo" {
     name    = docker_network.test_network_2.name
     aliases = ["tftest-container"]
   }
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }
 
 resource "docker_container" "bar" {
@@ -27,5 +31,9 @@ resource "docker_container" "bar" {
   networks_advanced {
     name    = docker_network.test_network_2.name
     aliases = ["tftest-container-foo"]
+  }
+
+  lifecycle {
+    ignore_changes = [network_mode]
   }
 }

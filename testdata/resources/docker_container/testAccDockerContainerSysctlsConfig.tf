@@ -9,4 +9,8 @@ resource "docker_container" "foo" {
   sysctls = {
     "net.ipv4.ip_forward" = "1"
   }
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

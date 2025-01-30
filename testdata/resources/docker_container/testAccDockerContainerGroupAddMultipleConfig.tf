@@ -11,4 +11,8 @@ resource "docker_container" "foo" {
     2,
     3,
   ]
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

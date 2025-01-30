@@ -6,4 +6,8 @@ resource "docker_container" "foo" {
   name  = "tf-test"
   image = docker_image.foo.image_id
   tty   = true
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

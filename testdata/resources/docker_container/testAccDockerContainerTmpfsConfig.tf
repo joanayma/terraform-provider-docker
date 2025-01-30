@@ -9,4 +9,8 @@ resource "docker_container" "foo" {
   tmpfs = {
     "/mount/tmpfs" = "rw,noexec,nosuid"
   }
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

@@ -20,4 +20,8 @@ resource "docker_container" "foo_mounts" {
     target = "/mount/tmpfs"
     type   = "tmpfs"
   }
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

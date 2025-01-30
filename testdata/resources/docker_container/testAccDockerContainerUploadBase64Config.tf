@@ -17,4 +17,8 @@ resource "docker_container" "foo" {
     content = "foobar"
     file    = "/terraform/test2.txt"
   }
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

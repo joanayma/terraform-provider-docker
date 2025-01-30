@@ -6,4 +6,8 @@ resource "docker_container" "test" {
   timeouts {
     create = "1s"
   }
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

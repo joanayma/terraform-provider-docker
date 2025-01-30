@@ -43,6 +43,7 @@ resource "docker_container" "foo" {
     max-size = "10m"
     max-file = 20
   }
+  network_mode = "bridge"
 
   # Disabled for tests due to
   # --storage-opt is supported only for overlay over xfs with 'pquota' mount option

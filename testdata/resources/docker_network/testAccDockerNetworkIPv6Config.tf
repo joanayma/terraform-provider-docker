@@ -2,7 +2,7 @@ resource "docker_network" "foo" {
   name = "bar"
   ipv6 = true
   ipam_config {
-    subnet = "fd00::1/64"
+    subnet = "fd00::/64"
   }
   # TODO mavogel: Would work but BC - #74 (import resources)
   #   ipam_config {

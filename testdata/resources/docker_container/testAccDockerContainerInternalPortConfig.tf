@@ -10,4 +10,8 @@ resource "docker_container" "foo" {
   ports {
     internal = 80
   }
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

@@ -23,4 +23,8 @@ resource "docker_container" "foo" {
   #   docker_network.tftest.name,
   #   docker_network.tftest_2.name
   # ]
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

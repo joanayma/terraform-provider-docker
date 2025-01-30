@@ -12,4 +12,8 @@ resource "docker_container" "foo" {
   cpu_set         = "0-1"
   memory          = 512
   memory_swap     = 2048
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

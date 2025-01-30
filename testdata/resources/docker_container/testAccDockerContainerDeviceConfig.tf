@@ -11,4 +11,8 @@ resource "docker_container" "foo" {
     container_path = "/dev/zero_test"
     permissions    = "rwm"
   }
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

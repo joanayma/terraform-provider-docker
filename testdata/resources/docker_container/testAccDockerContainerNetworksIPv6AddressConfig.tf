@@ -2,7 +2,7 @@ resource "docker_network" "test" {
   name = "tf-test"
   ipv6 = true
   ipam_config {
-    subnet  = "fd00::1/64"
+    subnet  = "fd00::/64"
     gateway = "fd00:0:0:0::f"
   }
 }

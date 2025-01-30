@@ -360,7 +360,7 @@ func testAccNetworkIPv6(network *types.NetworkResource, internal bool) resource.
 		if len(network.IPAM.Config) != 2 {
 			return fmt.Errorf("Bad value for IPAM configuration count: %d", len(network.IPAM.Config))
 		}
-		if network.IPAM.Config[1].Subnet != "fd00::1/64" {
+		if network.IPAM.Config[1].Subnet != "fd00::/64" {
 			return fmt.Errorf("Bad value for attribute 'subnet': %v", network.IPAM.Config[1].Subnet)
 		}
 		return nil

@@ -17,6 +17,9 @@ resource "docker_image" "foo" {
 resource "docker_container" "foo" {
   name  = "tf-test"
   image = docker_image.foo.image_id
+
+  network_mode = "bridge"
+
   networks_advanced {
     name         = docker_network.test.name
     ipv4_address = "10.0.1.123"

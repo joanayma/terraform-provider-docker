@@ -1065,6 +1065,24 @@ func TestAccDockerContainer_device(t *testing.T) {
 	})
 }
 
+func TestAccDockerContainer_CreateTimeout(t *testing.T) {
+	createTimeout := time.Duration(1 * time.Second)
+
+	resource.Test(t, resource.TestCase{
+		PreCheck:          func() { testAccPreCheck(t) },
+		ProviderFactories: providerFactories,
+		Steps: []resource.TestStep{
+			{
+				Config: fmt.Sprintf(
+					loadTestConfiguration(t, RESOURCE, "docker_container", "testAccDockerContainerCreateTimeoutConfig"),
+					createTimeout,
+				),
+				ExpectError: regexp.MustCompile("deadline exceeded"),
+			},
+		},
+	})
+}
+
 func TestAccDockerContainer_port_internal(t *testing.T) {
 	var c types.ContainerJSON
 

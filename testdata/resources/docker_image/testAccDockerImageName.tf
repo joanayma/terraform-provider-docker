@@ -9,4 +9,6 @@ resource "docker_container" "foo" {
   image   = docker_image.ubuntu.image_id
   name    = "foobar"
   command = ["sh", "-c", "while true ;do wait ;done"]
+
+  network_mode = "bridge"
 }

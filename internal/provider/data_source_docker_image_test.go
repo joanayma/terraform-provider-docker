@@ -140,7 +140,7 @@ func TestAccDockerImageDataSource_withNonExistentImage(t *testing.T) {
 			{
 				Config: `
 				data "docker_image" "foo" {
-					name = "nginx@sha256:3614ca5eacf0a3a1bcc361c939202a974b4902b9334ff36eb29ffe9011aaad83"
+					name = "nginx@sha256:a5a1e8e5148de5ebc9697b64e4edb2296b5aac1f05def82efdc00ccb7b457171"
 				}
 				`,
 				ExpectError: regexp.MustCompile(`.*did not find docker image.*`),
@@ -148,7 +148,7 @@ func TestAccDockerImageDataSource_withNonExistentImage(t *testing.T) {
 			{
 				Config: `
 				data "docker_image" "foo" {
-					name = "nginx:1.19.1@sha256:3614ca5eacf0a3a1bcc361c939202a974b4902b9334ff36eb29ffe9011aaad83"
+					name = "nginx:1.19.1@sha256:a5a1e8e5148de5ebc9697b64e4edb2296b5aac1f05def82efdc00ccb7b457171"
 				}
 				`,
 				ExpectError: regexp.MustCompile(`.*did not find docker image.*`),

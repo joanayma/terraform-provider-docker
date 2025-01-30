@@ -4,7 +4,7 @@ resource "docker_container" "test" {
   command = ["sleep", "10"]
 
   timeouts {
-    create = "1s"
+    create = "%s"
   }
 
   lifecycle {

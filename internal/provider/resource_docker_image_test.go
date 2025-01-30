@@ -167,7 +167,7 @@ func TestAccDockerImage_private(t *testing.T) {
 		}
 
 		if len(i.RepoDigests) != 1 ||
-		i.RepoDigests[0] != "gcr.io:443/google-containers/pause@sha256:a78c2d6208eff9b672de43f880093100050983047b7b0afe0217d3656e1b0d5f" {
+			i.RepoDigests[0] != "gcr.io:443/google-containers/pause@sha256:a78c2d6208eff9b672de43f880093100050983047b7b0afe0217d3656e1b0d5f" {
 			return fmt.Errorf("Image RepoDigests is wrong: %v", i.RepoDigests)
 		}
 

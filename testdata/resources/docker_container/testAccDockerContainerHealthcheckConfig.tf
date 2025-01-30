@@ -14,4 +14,8 @@ resource "docker_container" "foo" {
     start_period = "15s"
     retries      = 10
   }
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

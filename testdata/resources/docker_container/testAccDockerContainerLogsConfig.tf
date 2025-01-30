@@ -10,4 +10,8 @@ resource "docker_container" "foo" {
   attach   = true
   logs     = true
   must_run = false
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

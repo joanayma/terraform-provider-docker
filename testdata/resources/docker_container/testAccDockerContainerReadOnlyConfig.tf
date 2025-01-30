@@ -7,4 +7,8 @@ resource "docker_container" "foo" {
   image     = docker_image.foo.image_id
   command   = ["/bin/sleep", "15"]
   read_only = true
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

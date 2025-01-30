@@ -8,4 +8,8 @@ resource "docker_container" "foo" {
   image    = docker_image.foo.image_id
   start    = false
   must_run = false
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

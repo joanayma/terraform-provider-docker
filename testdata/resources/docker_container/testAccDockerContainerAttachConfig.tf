@@ -8,4 +8,8 @@ resource "docker_container" "foo" {
   command  = ["/bin/sh", "-c", "for i in $(seq 1 15); do sleep 1; done"]
   attach   = true
   must_run = false
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

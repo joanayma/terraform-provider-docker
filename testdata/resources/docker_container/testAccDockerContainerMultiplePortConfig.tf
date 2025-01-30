@@ -16,4 +16,8 @@ resource "docker_container" "foo" {
     internal = 81
     external = 32788
   }
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

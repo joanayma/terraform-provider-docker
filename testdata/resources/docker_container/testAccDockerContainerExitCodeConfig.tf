@@ -8,4 +8,8 @@ resource "docker_container" "foo" {
   command  = ["/bin/sh", "-c", "exit 123"]
   attach   = true
   must_run = false
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

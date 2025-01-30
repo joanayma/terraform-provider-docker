@@ -15,4 +15,7 @@ resource "docker_container" "foo" {
     name         = docker_network.test.name
     ipv4_address = "10.0.1.123"
   }
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }

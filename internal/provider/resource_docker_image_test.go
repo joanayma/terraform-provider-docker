@@ -162,12 +162,12 @@ func TestAccDockerImage_private(t *testing.T) {
 
 	testCheckImageInspect := func(*terraform.State) error {
 		if len(i.RepoTags) != 1 ||
-			i.RepoTags[0] != "gcr.io:443/google_containers/pause:0.8.0" {
+			i.RepoTags[0] != "gcr.io:443/google-containers/pause:0.8.0" {
 			return fmt.Errorf("Image RepoTags is wrong: %v", i.RepoTags)
 		}
 
 		if len(i.RepoDigests) != 1 ||
-			i.RepoDigests[0] != "gcr.io:443/google_containers/pause@sha256:bbeaef1d40778579b7b86543fe03e1ec041428a50d21f7a7b25630e357ec9247" {
+			i.RepoDigests[0] != "gcr.io:443/google-containers/pause@sha256:bbeaef1d40778579b7b86543fe03e1ec041428a50d21f7a7b25630e357ec9247" {
 			return fmt.Errorf("Image RepoDigests is wrong: %v", i.RepoDigests)
 		}
 
